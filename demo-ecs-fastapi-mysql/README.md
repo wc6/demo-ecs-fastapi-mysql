@@ -38,8 +38,8 @@ copilot deploy --name "fastmysql" -e "uat"
 └── requirements.txt
 ```
 
-![Alt text](img/image.png)
-![Alt text](img/image-1.png)
+![Alt text](image.png)
+![Alt text](image-1.png)
 
 上面是未创建RDS的
 
