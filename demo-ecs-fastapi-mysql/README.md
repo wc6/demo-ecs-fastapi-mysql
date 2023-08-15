@@ -38,8 +38,8 @@ copilot deploy --name "fastmysql" -e "uat"
 └── requirements.txt
 ```
 
-![Alt text](image.png)
-![Alt text](image-1.png)
+![Alt text](img/image.png)
+![Alt text](img/image-1.png)
 
 上面是未创建RDS的
 
@@ -48,6 +48,17 @@ copilot deploy --name "fastmysql" -e "uat"
 - 创建RDS
 - 修改代码，重新部署应用
 - 设置传入参数
+
+
+
+
+
+
+
+
+
+
+
 
 ```bash
 # git做个笔记，
