@@ -17,7 +17,7 @@ copilot env init --name uat --profile default --import-vpc-id vpc-055dec0736877f
 # copilot env init --name 环境 --profile default --import-vpc-id vpc-id --import-public-subnets subnet-id1,id2 
 
 copilot env deploy --name "uat"
-# copilot env deploy --name "部署"
+# copilot env deploy --name "环境"
 
 copilot deploy --name "fastmysql" -e "uat"
 # copilot deploy --name "Service名字" -e "环境"
