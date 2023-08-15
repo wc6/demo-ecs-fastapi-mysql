@@ -50,6 +50,7 @@ copilot deploy --name "fastmysql" -e "uat"
 - 设置传入参数
 
 ```bash
+# git做个笔记，
 echo "# demo-ecs-fastapi-mysql" >> README.md
 git init
 git add README.md
