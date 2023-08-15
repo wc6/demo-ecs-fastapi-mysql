@@ -49,15 +49,68 @@ copilot deploy --name "fastmysql" -e "uat"
 - 修改代码，重新部署应用
 - 设置传入参数
 
+```bash
+理论知识
+copilot svc deploy --env-vars VAR1=value1 VAR2=value2 VAR3=value3
+
+```
+
+├── Dockerfile
+├── app
+│   ├── __init__.py
+│   └── main.py
+├── copilot
+│   ├── environments
+│   │   └── uat
+│   │       └── manifest.yml
+│   └── fastmysql
+│       └── manifest.yml
+└── requirements.txt
+
+这个里面只修改了main.py
+```python 
+import os
+
+db = mysql.connector.connect(
+    host=os.environ.get('host'),
+    user=os.environ.get('user'),
+    password=os.environ.get('password'),
+    database=os.environ.get('database')
+)
+```
+```sql
+-- 创建RDS数据
+-- 配置安全组允许ECS群集 和 跳板机 访问
+create table users
+(
+    id    int auto_increment
+        primary key,
+    name  varchar(200) null,
+    email varchar(200) null
+);
+insert into users values(null,'zhangsan','zs@qq.com');
+insert into users values(null,'l4','l4@qq.com');
+insert into users values(null,'w5','w5@qq.com');
+```
+
+```bash
+vim copilot/fastmysql/manifest.yml
+```
+```yaml
+variables:                    # Pass environment variables as key value pairs.
+  host: test.test.us-east-1.rds.amazonaws.com
+  user: admin
+  password: password
+  database: test
+```
+```bash
+# 重新部署
+copilot svc deploy
+# 下面是进入docker:
+# copilot svc exec -a demoapp(应用名) -e uat(环境) -n fastmysql(Service名字)
 
 
-
-
-
-
-
-
-
+```
 
 
 ```bash
