@@ -94,9 +94,16 @@ variables:                    # Pass environment variables as key value pairs.
 copilot svc deploy
 # 下面是进入docker:
 # copilot svc exec -a demoapp(应用名) -e uat(环境) -n fastmysql(Service名字)
-
-
 ```
+第二天计划：
+Docker 添加卷：
+- 
+![Alt text](image-2.png)
+
+构建计划：
+
+
+
 
 
 ```bash
