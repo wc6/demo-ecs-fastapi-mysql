@@ -1,5 +1,13 @@
 #### copilot 部署 ECS FastApi应用
 
+```bash
+yum install docker -y
+# install copilot
+sudo curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux \
+   && sudo chmod +x /usr/local/bin/copilot \
+   && copilot --help
+
+```
 #### 文件夹结构
 ```bash
 .
@@ -101,8 +109,38 @@ Docker 添加卷：
 ![Alt text](image-2.png)
 
 构建计划：
+---
+NFS 挂载测试
+2*EC2 (jumpserver & nfs 模拟服务器) 
+
+nfs Server:
+```bash 
+# 创建共享服务器
+mkdir /data
+yum install nfs-server -y
+vim /etc/exports
+# 共享文件夹   *：所有主机  ()里面的不变
+/data *(rw,sync,no_root_squash)
+systemctl enable nfs-server --now
 
 
+```
+第二次测试：
+集群：dxc-nginx  fargate 
+task   不带卷
+
+第三次测试：
+集群：
+phlips-nginx   fargate + ec2
+task  3  不带卷
+task  4  带卷   mfs ->  /html
+
+
+
+task 2 : ec2
+---
+
+Samba 测试
 
 
 
